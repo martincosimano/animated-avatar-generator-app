@@ -1,14 +1,15 @@
 document.querySelector('#create').addEventListener('click', apiRequest)
+let alertMessage = document.querySelector('h3')
 
 async function apiRequest(){
     const avatarName = document.querySelector('input').value
     if(!avatarName){
-        alert('Please type something')
+        alertMessage.innerText = "Please type something"
     }else{
         try{
             const response = await fetch(`https://api.multiavatar.com/${avatarName}.png?apikey=dr6RpJefscNoOa`)
             const data = await response.url
-    
+            alertMessage.innerText = ""
                 document.querySelector('img').src = data
                 document.querySelector('#imgLink').href = data
         }catch(error){

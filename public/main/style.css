@@ -38,6 +38,10 @@ h1 {
     letter-spacing: 0.2em;
 }
 
+h3 {
+    color:#FF3746;
+}
+
 button {
     padding: 0.5rem 1.5rem;
     background-color: var(--clr-background-primary);
@@ -149,7 +153,8 @@ div {
 .form-container,
 .text-container,
 .button-container,
-.favorite-container {
+.favorite-container,
+.alert-container {
     display: flex;
     justify-content: center;
 }
