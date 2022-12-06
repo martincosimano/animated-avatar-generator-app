@@ -2,14 +2,18 @@ document.querySelector('#create').addEventListener('click', apiRequest)
 
 async function apiRequest(){
     const avatarName = document.querySelector('input').value
-    try{
-        const response = await fetch(`https://api.multiavatar.com/${avatarName}.png?apikey=dr6RpJefscNoOa`)
-        const data = await response.url
-
-            document.querySelector('img').src = data
-            document.querySelector('#imgLink').href = data
-    }catch(error){
-        console.log(error)
+    if(!avatarName){
+        alert('Please type something')
+    }else{
+        try{
+            const response = await fetch(`https://api.multiavatar.com/${avatarName}.png?apikey=dr6RpJefscNoOa`)
+            const data = await response.url
+    
+                document.querySelector('img').src = data
+                document.querySelector('#imgLink').href = data
+        }catch(error){
+            console.log(error)
+        }
     }
 }
 

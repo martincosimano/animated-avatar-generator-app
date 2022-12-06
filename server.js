@@ -27,12 +27,16 @@ app.get('/', (request, response)=>{
 })
 
 app.post("/addAvatar", (request, response) => {
-    db.collection('avatars').insertOne({avatarName: request.body.avatarName, likes: 0})
-    .then(result => {
-        console.log('Avatar Added')
+    if(request.body.avatarName === ''){
         response.redirect('/')
-    })
-    .catch(error => console.error(error))
+    }else{
+        db.collection('avatars').insertOne({avatarName: request.body.avatarName, likes: 0})
+        .then(result => {
+            console.log('Avatar Added')
+            response.redirect('/')
+        })
+        .catch(error => console.error(error))
+    }
 })
 
 app.put('/addOneLike', (request, response) => {
