@@ -190,6 +190,17 @@ input {
     margin-bottom: 0;
 }
 
+.favorite-container {
+    width: 25rem;
+    margin-bottom: 3rem;
+    min-height: 25.2rem;
+    opacity: 0.9;
+}
+
+h2 {
+    text-align: center;
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/

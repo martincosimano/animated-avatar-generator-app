@@ -40,19 +40,22 @@
             <div class="text-container">
                 <p>To create a random avatar, just type anything in the above field and then press the button. If you liked the result, you can like it and see it on the list below!</p>
             </div>
-            <div class="favorite-container">
-                <ul class="avatars">
-                    <% for(let i=0; i < info.length; i++) {%>
-                        <li class="avatar">
-                            <div class="item-container">
-                                <span><%= info[i].avatarName %></span>
-                                <span><%= info[i].likes %></span>
-                                <i class="fa-solid fa-thumbs-up"></i>
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
-                        </li>
-                    <% } %>
-                    </ul>        
+            <h2>Favorite List:</h2>
+            <div class="container">
+                <div class="favorite-container">
+                    <ul class="avatars">
+                        <% for(let i=0; i < info.length; i++) {%>
+                            <li class="avatar">
+                                <div class="item-container">
+                                    <span><%= info[i].avatarName %></span>
+                                    <span><%= info[i].likes %></span>
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </div>
+                            </li>
+                        <% } %>
+                        </ul>
+                </div>
             </div>
         </div>
     </div>

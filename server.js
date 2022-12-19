@@ -3,14 +3,17 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
 const PORT = 8000
+require('dotenv').config()
 
-const uri = 'mongodb+srv://karvy:asdasd@cluster0.juc0eqz.mongodb.net/?retryWrites=true&w=majority'
 
+let db,
+    dbConnectionStr = process.env.DB_STRING,
+    dbName = 'animated-avatar-app'
 
-MongoClient.connect(uri, { useUnifiedTopology: true })
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
-        console.log(`Connected to Database`)
-        const db = client.db('animated-avatar-app')
+        console.log(`Connected to ${dbName} Database`)
+        db = client.db(dbName)
         
         app.set('view engine', 'ejs')
         app.use(express.static('public'))
@@ -29,6 +32,7 @@ app.get('/', (request, response)=>{
 app.post("/addAvatar", (request, response) => {
     if(request.body.avatarName === ''){
         response.redirect('/')
+        
     }else{
         db.collection('avatars').insertOne({avatarName: request.body.avatarName, likes: 0})
         .then(result => {
